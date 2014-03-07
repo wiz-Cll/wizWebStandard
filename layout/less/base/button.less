@@ -1,0 +1,117 @@
+@import "../config/config.less";
+@import "../config/mixin.less";
+
+.btn{
+    display: inline-block;
+    
+    min-width: 6em;
+    padding: 0 1em;
+    // margin-bottom: 0.5em;
+    margin-bottom: 1em;
+
+    line-height: @btnLH;
+    color: #333;
+    text-decoration: none;
+    text-align: center;
+
+    cursor: pointer;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: @btnBC;
+
+    .tst( all 150ms ease;);
+
+    &:hover,
+    &.hover{
+        background-color: @btnHoverBGC;
+    }
+
+    &:active,
+    &.active{
+        background-color: @btnHoverBGC;
+        .box-shadow( inset 0 2px 5px -1px rgba(0,0,0,0.25) );
+    }
+}
+
+// 初衷是用户使用tab操作时, 有个指示可以标明当前焦点在哪里, 结果IE下点击之后也一直带有该伪类, 实在```不爽
+.btn:focus{
+    outline: 1px solid @mainC;
+    // .box-shadow( 0 0 3px 0 fadeOut( @inputFocusShdC, 20% ); );
+}
+.btn.disabled:focus{
+    outline: none;
+}
+
+
+
+.btn.primary{
+    color: @btnPrimaryC;
+    border-color: @btnPrimaryBC;
+    background-color: @btnPrimaryBGC;
+
+    &:hover,
+    &.hover{
+        background-color: @btnPrimaryHoverBGC;
+    }
+
+    &:active,
+    &.active{
+        background-color: @btnPrimaryHoverBGC;
+        .box-shadow( inset 0 2px 5px -1px rgba(0,0,0,0.75) );
+    }
+}
+.btn.danger{
+    color: @btnDangerC;
+    border-color: @btnDangerBC;
+    background-color: @btnDangerBGC;
+
+    &:hover,
+    &.hover{
+        background-color: @btnDangerHoverBGC;
+    }
+
+    &:active,
+    &.active{
+        background-color: @btnDangerHoverBGC;
+        .box-shadow( inset 0 2px 5px -1px rgba(0,0,0,0.75) );
+    }
+}
+
+
+.btn.disabled{
+    color: @btnDisabledC;
+    border-color: @btnDisabledBC;
+    background-color: @btnDisabledBGC;
+
+    cursor: default;
+
+    // &:hover,
+    // &.hover{
+    //     background-color: @btnHoverBGC;
+    // }
+
+    &:active,
+    &.active{
+        .box-shadow( none );
+    }
+}
+
+.btn.btn-loading{
+    position: relative;
+    padding-right: 2em;
+    color: #999;
+
+    &:after{
+        position: absolute;
+        content: '';
+        top: 0.4em;
+        right: 0.5em;
+        // margin-top: 1px;
+        background-image: url( @loadingImgUrl);
+        background-size: cover;
+        height: 1.2em;
+        width: 1.2em;
+    }
+
+}

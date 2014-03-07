@@ -1,0 +1,55 @@
+@import "../config/config.less";
+@import "../config/mixin.less";
+
+.icon{
+    display: inline-block;
+    width: @iconW;
+    height: @iconW;
+
+    cursor: pointer;
+    background-image: url( @iconImgUrl );
+}
+
+
+.icon-toright{
+    .icon-pos(1, 2);
+    &:hover{
+        &:extend(.icon-toright-active);
+    }
+}
+.icon-toright-active{ .icon-pos(2, 2); }
+
+
+.icon-toleft{
+    .icon-pos(1, 3);
+    &:hover{
+        &:extend(.icon-toleft-active);
+    }
+}
+.icon-toleft-active{ .icon-pos(2, 3); }
+
+
+.icon-setting{
+    .icon-pos(1, 4);
+    &:hover{
+        &:extend(.icon-setting-active);
+    }
+}
+.icon-setting-active{ .icon-pos(3,4); }
+
+
+.icon-fold-down{
+    .icon-pos(1, 5);
+    &:hover{
+        &:extend(.icon-fold-down-active);
+    }
+}
+.icon-fold-down-active{ .icon-pos(3,5); }
+
+.icon-fold-right{
+    .icon-pos(2, 5);
+    &:hover{
+        &:extend(.icon-fold-right-active);
+    }
+}
+.icon-fold-right-active{ .icon-pos(4,5); }

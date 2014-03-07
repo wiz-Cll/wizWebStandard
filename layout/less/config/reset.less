@@ -1,0 +1,22 @@
+@import "config.less";
+@import "mixin.less";
+
+body{
+    margin: 0;
+    padding: 0;
+    font-size: @fontS;
+    color: @fontC;
+    line-height: 1.35;
+    font-family: @fontFamily;
+}
+input,
+textarea{
+    font-size: @fontS;
+    color: @fontC;
+    line-height: 1;
+    font-family: @fontFamily;
+}
+
+*{
+    .box-sizing();
+}
