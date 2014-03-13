@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta content="initial-scale=1, maximum-scale=1, minimum-scale=1" name="viewport">
     <title>为知web设计标准展示</title>
 
     <link rel="stylesheet" href="layout/css/demo.css">
@@ -37,25 +38,25 @@
             <a href="#" class="btn">按钮</a>
             <a href="#" class="btn">有最小宽度</a>
             <a href="#" class="btn">ok</a>
+            <a href="#" class="btn btn-loading">ok</a>
             <a href="#" class="btn hover">hover状态</a>
             <a href="#" class="btn active">active状态</a>
 
-            <!-- <a href="#" class="btn btn-loading">有最小宽度</a> -->
 
             <br>
             <a href="#" class="btn disabled">禁用</a>
             <br>
-            <a href="#" class="btn danger">危险</a>
-            <a href="#" class="btn danger">删除该群组</a>
-            <a href="#" class="btn danger">Drop</a>
-            <a href="#" class="btn danger hover">hover状态</a>
-            <a href="#" class="btn danger active">active状态</a>
+            <a href="#" class="btn btn-danger">危险</a>
+            <a href="#" class="btn btn-danger">删除该群组</a>
+            <a href="#" class="btn btn-danger">Drop</a>
+            <a href="#" class="btn btn-danger hover">hover状态</a>
+            <a href="#" class="btn btn-danger active">active状态</a>
             <br>
-            <a href="#" class="btn primary">主按钮</a>
-            <a href="#" class="btn primary">注册并开通</a>
-            <a href="#" class="btn primary">Login</a>
-            <a href="#" class="btn primary hover">hover状态</a>
-            <a href="#" class="btn primary active">active状态</a>
+            <a href="#" class="btn btn-primary">主按钮</a>
+            <a href="#" class="btn btn-primary">注册并开通</a>
+            <a href="#" class="btn btn-primary">Login</a>
+            <a href="#" class="btn btn-primary hover">hover状态</a>
+            <a href="#" class="btn btn-primary active">active状态</a>
 
             <p class="ht">配置项</p>
             <ul>
@@ -78,7 +79,6 @@
 
         <div>
             <h1>图标Icon</h1>
-            <!-- <i class="icon"></i> -->
             <ul id="icon-list" class="fix-flt">
                 
                 <li class="icon-item">
@@ -101,16 +101,12 @@
                     <i class="icon icon-fold-right"></i>
                     <p>.icon-fold-right(2,5)</p>
                 </li>
-                <!-- <li class="icon-item">
-                    <i class="icon icon-toleft"></i>
-                    <p>.icon-toleft</p>
-                </li> -->
             </ul>            
         </div>
 
         <div>
             <h1>表单元素</h1>
-            <div class="form" id="form-1">
+            <div class="form with-label" id="form-1">
                 <p class="ht">普通的表单</p>
                 <div class="form-controll">
                     <label for="">邮箱</label><input type="text">
@@ -124,11 +120,13 @@
                 <div class="form-controll">
                     <label for="">群组备注</label><textarea></textarea>
                 </div>
+
+                <a href="#" class="btn btn-block btn-primary">提交</a>
             </div>
             
 
             <br>
-            <div class="form patch-ph" id="form-1">
+            <div class="form patch-ph">
                 <p class="ht">带有placeholder的表单</p>
                 <p class="idt">如果需要placeholder, 可以给.form容器添加.patch-ph, 意思是打上placeholder的补丁. 然后引入form.js.该脚本暂时只是立即执行的函数, 当然可以改造成任意的模块格式<span class="span tip">[IE8/9测试通过, IE9在使用js改变value的时候需要手动触发propertychange, 或者用attr的操作方式赋值]</span>.如果需要国际化, 请在国际化完成之后, 即输入元素的placehoder已经填充好语言之后, 再进行patch的操作.</p>
                 <p class="idt">当然patch的时候无论是否input的值为空, 都会做出响应的初始化: 值不为空的时候, 会在添加patch元素后直接隐藏.</p>
@@ -146,6 +144,19 @@
                     <input type="text" placeholder="邮箱: example@wiz.cn" value="hasVal@wiz.cn">
                 </div>
             </div>
+
+            <div class="form patch-ph float-label">
+                <p class="ht">浮动label -- 极简input的救赎</p>
+                <p class="idt">极简的input, 使用placeholder作为提示,一切都很自然. 但是在用户输入之后, placeholder自动隐藏, 当有过多的表单的时候还是没办法确定哪一个input需要填写的是什么东西.有这样<a href="http://webdesign.tutsplus.com/tutorials/implementing-the-float-label-form-pattern--webdesign-16407">一篇文章</a>很能给人灵感.</p>
+
+                <div class="form-controll" data-fl="Email">
+                    <input type="text" placeholder="邮箱: example@wiz.cn">
+                </div>
+                <div class="form-controll" data-fl="密码">
+                    <input type="password" placeholder="密码">
+                </div>
+            </div>
+
         </div>
         
         
@@ -154,7 +165,8 @@
 
 
     <script src="lib/jquery-1.10.2.js"></script>
-    <script src="lib/base/form.js"></script>
+    <script src="lib/base/form-phpatch.js"></script>
+    <script src="lib/base/form-float-label.js"></script>
     <script>
         $('a.btn').bind('click', function( e ){
             if( e.target.getAttribute('href') === '#' ){

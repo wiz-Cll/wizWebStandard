@@ -1,11 +1,11 @@
-@import "../config/config.less";
-@import "../config/mixin.less";
+@import "../../config/config.less";
+@import "../../config/mixin.less";
 
-
+// 一个表单元素的单元  ----------------------------------------
 .form-controll{
     margin-bottom: 1em;
 }
-
+// 默认样式   ------------------------------------------------
 label{
     display: inline-block;
     width: 100px;
@@ -19,16 +19,13 @@ label{
 input,
 textarea{
     display: inline-block;
-    min-width: 220px;
+    width: 220px;
     margin: 0;
     padding: 0.65em 0.5em;
 
     line-height: 1;
-
     outline: none;
     border: 1px solid @inputBC;
-
-    .tst();
 
     &:focus{
         border: 1px solid @inputFocusBC;
@@ -38,7 +35,9 @@ textarea{
 }
 input{
     height: 2.5em;
+    font-size: 16px;
 }
+// placeholder样式  ------------------------------------------
 ::-webkit-input-placeholder{
     line-height: 1.35;
 }
@@ -54,23 +53,6 @@ textarea{
     resize: none;
 }
 
-// .form ctn with placeholder patch
-.patch-ph .form-controll{
-    position: relative;
-}
-// placeholder patcher
-.ph-patcher{
-    position: absolute;
-    left: 0.5*@fontS + 1px;
-    top: 0.65*@fontS;
-    width: 220px;
-
-    line-height: 1;
-    color: #afafaf;
-
-    .tst();
-
-    &.hide{
-        display: none;
-    }
-}
+@import "placeholder-patch.less";
+@import "floatlabel.less";
+@import "formtip.less";

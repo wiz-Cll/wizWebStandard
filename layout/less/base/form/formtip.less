@@ -1,0 +1,95 @@
+@import "../../config/config.less";
+@import "../../config/mixin.less";
+
+@errC: @btnDangerBGC;
+@sucC: @mainC;
+
+.form-tip-ctn{
+    min-height: 1.5em;
+}
+
+.form{
+    .form-tip{
+        // display: none;
+        font-size: 0;
+        position: relative;
+        margin: 0;
+        z-index: -10;
+    }
+    .err-tip,
+    .suc-tip{
+        opacity: 0;
+        .tst(opacity 200ms ease);
+    }
+    .err-tip{
+        color: @errC;
+    }
+    .suc-tip{
+        color: @sucC;
+    }
+
+    &.submit-suc .err-tip,
+    &.submit-err .suc-tip{
+        // display: block;
+        font-size: 1em;
+        opacity: 1;
+        z-index: 200;
+        .tst(opacity 300ms ease);
+    }
+}
+
+
+.form-controll{
+
+    .input-tip{
+        // display: none;
+        display: inline-block;
+        padding: 0 0.25em;
+        border: 1px solid #ccc;
+        .border-radius(2px);
+    }
+
+    &.empty-err,
+    &.format-err{
+        input, textarea{
+            border-color: @errC;
+
+            &:focus{
+                .box-shadow( 0 0 3px fadeOut(@errC, 20%); );
+            }
+        }
+    }
+    &.empty-err .empty-err,
+    &.format-err .format-err{
+        display: inline-block;
+        z-index: 200;
+    }
+
+    .empty-err, .format-err{
+        display: none;
+        position: relative;
+        left: 0.5em;
+        padding: 0 0.5em;
+        color: @errC;
+        border-color: @errC;
+        background-color: #fff;
+        .box-shadow( 0 0 5px @btnBC;);
+
+        &:after, &:before{
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border: 0.5em solid transparent;
+            // border-right-color: #fff;
+            border-right-color: @errC;
+            left: -1em;
+            top: 50%;
+            margin-top: -1em/2;
+        }
+        &:after{
+            border-right-color: #fff;
+            margin-left: 1px;
+        }
+    }
+}

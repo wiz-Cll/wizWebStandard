@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>表单提示</title>
+
+    <link rel="stylesheet" href="layout/css/demo.css">
+    
+    <script>
+        document.write('<link rel="stylesheet" href="layout/css/layout.css?ts='+(new Date()).valueOf()+'">')
+    </script>
+    
+</head>
+<body>
+    <div class="main">
+        <!-- <div class="form patch-ph float-label">
+            <h1>登录</h1>
+            
+            <div class="form-controll" data-fl="Email">
+                <input type="text" placeholder="邮箱: example@wiz.cn">
+            </div>
+            <div class="form-controll" data-fl="密码">
+                <input type="password" placeholder="密码">
+            </div>
+            <a href="#" class="btn btn-primary">登录</a>
+        </div> -->
+
+        <p class="ht">表单验证一直是一个很复杂细致的工作, 尽管js最初的最初就致力于此.</p>
+        <p>现在抽象一下, 按照需求分为create和use两种表单, 前者的代表是注册账户, 后者的代表是登录.</p>
+        <p>注册时, 要说明每个输入框的输入要求: 合式的email地址 或者 11位的手机号码, 6-16位的密码, 可以是哪些合法字符...</p>
+
+        <p class="ht">首先来看登录表单</p>
+        <p class="idt">用户已经拥有账户,知道账户名称和密码的规则. 而且在产品的发展过程中账户的规则也会变化: 最初可能只允许email, 但后面也许会开发昵称登录, 手机号登录...,综合上述事实:</p>
+        <ul>
+            <li>不要再用户输入过程中校验是否符合规则</li>
+            <li>在点击登录后校验是否为空, 并在输入框附近提示</li>
+            <li><span class="tip">[enhancement]</span>已经标记为空错误的input, 执行input和propertychange的监控, 不为空的时候就把empty-err去掉</li>
+            <li>都非空后发出请求, 移除上一次提交后产生的提示, 禁用或者给提交按钮加特殊class避免重复提交, 在表单上部做登录结果提示</li>
+        </ul>
+        <p class="ht">登录表单示例:</p>
+
+        <div class="form patch-ph float-label" id="login-form-example">
+            <h1>登录</h1>
+            <div class="form-tip-ctn">
+                <p class="form-tip err-tip">账户或密码错误</p>
+                <p class="form-tip suc-tip">登录成功, 即将跳转到哪里哪里...</p>
+            </div>
+            <div class="form-controll" data-fl="Email">
+                <input type="text" placeholder="邮箱: example@wiz.cn" id="login-example-account">
+                <span class="empty-err input-tip">账户不能为空</span>
+            </div>
+            <div class="form-controll" data-fl="密码">
+                <input type="password" placeholder="密码" id="login-example-password">
+                <span class="empty-err input-tip">密码不能为空</span>
+            </div>
+            <a href="#" class="btn btn-primary" id="login-example-loginbtn">登录</a>
+        </div>
+
+    </div>
+
+
+    <script src="lib/jquery-1.10.2.js"></script>
+    <script src="lib/base/form-phpatch.js"></script>
+    <script src="lib/base/form-float-label.js"></script>
+
+
+    <script src="lib/example/login-form-check.js"></script>
+</body>

@@ -1,0 +1,23 @@
+@import "../../config/config.less";
+@import "../../config/mixin.less";
+
+// .form ctn with placeholder patch  ------------------------------------------
+.form.patch-ph .form-controll
+{
+    position: relative;
+}
+// placeholder patcher 
+.ph-patcher{
+    position: absolute;
+    left: 0.5*@fontS + 1px;
+    top: 12px;
+    width: 220px;
+
+    line-height: 1;
+    color: #afafaf;
+    z-index: 100;
+
+    &.hide{
+        display: none;
+    }
+}

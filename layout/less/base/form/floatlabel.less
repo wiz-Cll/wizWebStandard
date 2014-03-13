@@ -1,0 +1,45 @@
+@import "../../config/config.less";
+@import "../../config/mixin.less";
+
+
+// .form with float label ------------------------------------------
+.form.float-label{
+    padding-top: 1.5em;
+}
+
+.form.float-label .form-controll
+{
+    position: relative;
+    margin: 2em 0;
+}
+
+.f-label{
+    position: absolute;
+    left: 0.375*@fontS+1px;
+    top: 0.65*@fontS;
+
+    line-height: 1;
+    color: @mainC;
+    // background-color: #fff;
+    z-index: -100;
+    opacity: 0;
+}
+
+.form-controll.fl-active{
+    .f-label{
+        z-index: 100;
+        // : -1.25em;
+        opacity: 1;
+
+        .tsf( translateY(-1.85em); );
+
+        .tst( opacity 150ms ease, transform 150ms ease-out; );
+    }
+}
+
+// -webkit- patch for transformProp transition
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .form-controll.fl-active .f-label{
+        .tst( opacity 150ms ease, -webkit-transform 150ms ease-out; );
+    }
+}

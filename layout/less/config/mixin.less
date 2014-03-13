@@ -10,7 +10,11 @@
     -moz-box-shadow: @v;
     box-shadow: @v;
 }
-
+.border-radius( @v ){
+    -webkit-border-radius: @v;
+    -moz-border-radius: @v;
+    border-radius: @v;
+}
 .tst( @v: all 300ms ease; ){
     -webkit-transition: @v;
     -moz-transition: @v;
@@ -19,6 +23,13 @@
     transition: @v;
 }
 
+.tsf( @v: translateZ(0);){
+    -webkit-transform: @v;
+    -moz-transform: @v;
+    -ms-transform: @v;
+    -o-transform: @v;
+    transform: @v;
+}
 .icon-pos( @x:1, @y:1, @deltaX:0, @deltaY: 0 ){
     background-position: -((@x - 1)*@iconBGPU + @deltaX) -( (@y - 1)*@iconBGPU + @deltaY);
 }

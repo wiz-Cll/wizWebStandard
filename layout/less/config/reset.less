@@ -6,7 +6,7 @@ body{
     padding: 0;
     font-size: @fontS;
     color: @fontC;
-    line-height: 1.35;
+    line-height: 1.5;
     font-family: @fontFamily;
 }
 input,
@@ -19,4 +19,13 @@ textarea{
 
 *{
     .box-sizing();
+    // 手机上轻点后变灰
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
+
+
+.mvvm{
+    visibility: hidden;
+}
+
+
