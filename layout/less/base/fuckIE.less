@@ -1,8 +1,11 @@
 
-// IE8 不支持transform  用top代替   \0的css属性值 只有IE8识别
-.form-controll.fl-active{
-    .f-label{
-        // .tsf( translateY(-1.85em); );
-        top: -1.25em\0;
+// IE8 不支持transform  用top代替   \0的css属性值 只有IE8识别; prop: ~"val" 告诉less把引号里的值直接付给prop 不考虑合法性
+// IE8 现在已经没有了专属hack  而IE9 不用考虑动画的流畅性( no tst ) 所以IE8/9 都不用translateZ
+    .form-controll.fl-active{
+        .f-label{
+            // .tsf( translateY(-1.85em); );
+            -ms-transform: translateY( 0 );
+            transform: ~"translateY( 0 )\0";
+            top:  ~"-1.25em\0";
+        }
     }
-}
